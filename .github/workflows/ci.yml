@@ -17,4 +17,11 @@ jobs:
         with:
           node-version: "20"
       - run: npm install
-      - run: npm test
+
+      - name: Compile Typescript
+        run: npm run build
+
+      - name: Run Test
+        run: npm test
+        env:
+          PORT: ${{ secrates.PORT }}
